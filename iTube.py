@@ -1,3 +1,12 @@
+"""
+This tool need the following folders:
+    DB
+    mp4
+    mp3
+Put the database in DB folder
+Put videos in mp4 folder
+"""
+
 import sqlite3, os
 import moviepy.editor as mp
 
