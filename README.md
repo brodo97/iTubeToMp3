@@ -30,3 +30,7 @@ or
 ```bash
   $ python2.7 iTube.py
 ```
+## Normalization
+Every name with ['à', 'è', 'é', 'ì', 'ò', 'ù'] characters will be normalized:
+
+['à', 'è', 'é', 'ì', 'ò', 'ù'] -> ['a', 'e', 'e', 'i', 'o', 'u']

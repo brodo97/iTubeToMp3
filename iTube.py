@@ -48,7 +48,7 @@ for video in videos:
             clip = mp.VideoFileClip("./mp4/"+video[0]+".mp4")
             name = unicodedata.normalize('NFKD', video[1]).encode('ascii', 'ignore')
             clip.audio.write_audiofile("./mp3/"+name+".mp3")
-            
+
             if remove:
                 os.system("rm mp4/"+video[0]+".mp4")
         except Exception as e:
@@ -58,5 +58,6 @@ for video in videos:
 if len(notConverted)==0:
     print "Everything OK! All videos converted!"
 else:
+    print "Videos not converted:"
     for video in notConverted:
         print video
