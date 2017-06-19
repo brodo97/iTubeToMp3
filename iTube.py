@@ -10,7 +10,11 @@ Put videos in mp4 folder
 import sqlite3, os, unicodedata
 import moviepy.editor as mp
 
-available, videos = [], []
+available = []
+videos = []
+
+#Bitrate: '64k','128k','256k','320k'
+br = '128k'
 
 root = os.listdir("./")
 if not "mp4" in root:
@@ -46,8 +50,8 @@ for video in videos:
     if video[0]+".mp4" in available:
         try:
             clip = mp.VideoFileClip("./mp4/"+video[0]+".mp4")
-            name = unicodedata.normalize('NFKD', video[1]).encode('ascii', 'ignore')
-            clip.audio.write_audiofile("./mp3/"+name+".mp3")
+            name = unicodedata.normalize('NFKD', video[1]).encode('ascii', 'ignore').replace("/","-")
+            clip.audio.write_audiofile("./mp3/"+name+".mp3",bitrate=br,progress_bar=False)
 
             if remove:
                 os.system("rm mp4/"+video[0]+".mp4")
